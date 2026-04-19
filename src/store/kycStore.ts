@@ -1,32 +1,15 @@
 import { create } from 'zustand'
 
-interface PersonalInfo {
-    firstName: string
-    lastName: string
-    dateOfBirth: string
-    nationality: string
-}
-
-interface Address {
-    street: string
-    city: string
-    postalCode: string
-    country: string
-}
-
-interface Document {
-    documentType: string
-    documentNumber: string
-}
+import type { PersonalInfoForm, AddressForm, DocumentForm } from '../types/kyc'
 
 interface KYCState {
     currentStep: number
-    personalInfo: PersonalInfo
-    address: Address
-    document: Document
-    setPersonalInfo: (data: PersonalInfo) => void
-    setAddress: (data: Address) => void
-    setDocument: (data: Document) => void
+    personalInfo: PersonalInfoForm
+    address: AddressForm
+    document: DocumentForm
+    setPersonalInfo: (data: PersonalInfoForm) => void
+    setAddress: (data: AddressForm) => void
+    setDocument: (data: DocumentForm) => void
     setCurrentStep: (step: number) => void
 }
 
