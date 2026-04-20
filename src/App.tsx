@@ -1,9 +1,20 @@
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import Layout from './pages/Layout'
+
 function App() {
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white flex items-center justify-center">
-      <h1 className="text-4xl font-bold">KYC Onboarding</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />} >
+          <Route index element={<Navigate to="/step/1" replace/>} />
+          <Route path="/step/1" element={<div>Step 1 - Personal Info</div>} />
+          <Route path="/step/2" element={<div>Step 2 - Address</div>} />
+          <Route path="/step/3" element={<div>Step 3 - Documents</div>} />
+          <Route path="/step/4" element={<div>Step 4 - Review</div>} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
